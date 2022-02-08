@@ -4,7 +4,7 @@
 	>
 		<article class="w-3/4 p-3 | bg-gray-200 rounded-xl shadow-md">
 			<h6 class="text-center text-2xl">
-				Reomve {{ $store.getters.getNoteTitle() }}
+				Remove {{ $store.getters.getNoteTitle() }}
 			</h6>
 			<nav class="flex justify-end">
 				<a
