@@ -1,44 +1,50 @@
 <template>
-	<div v-if="activeNote" class="h-full | flex flex-col">
-		<div class="flex-1 | flex">
-			<!-- Editing -->
-			<section class="flex-1">
-				<ActiveNoteMD
-					v-model:body="activeNote.body"
-					@blur-note="blurNote"
-					class="w-full h-full p-3 | bg-gray-200"
+	<transition name="fade" mode="out-in">
+		<div v-if="activeNote" class="h-full | flex flex-col">
+			<div class="flex-1 | md:flex">
+				<!-- Editing -->
+				<section class="flex-1">
+					<ActiveNoteMD
+						v-model:body="activeNote.body"
+						@blur-note="blurNote"
+						class="min-h-1/4 w-full h-full p-3 | bg-gray-200"
+					/>
+				</section>
+				<ActiveNoteHTML
+					:body="activeNote.body"
+					class="min-h-1/4 p-3 | bg-gray-900 text-white | flex-1 | mdscss"
 				/>
-			</section>
-			<ActiveNoteHTML
-				:body="activeNote.body"
-				class="p-3 | bg-gray-900 text-white | flex-1 | mdscss"
-			/>
-		</div>
-		<!-- Note info and actions -->
-		<section class="mt-3 | flex justify-between items-center">
-			<div>Created on {{ noteDate }} contains {{ noteLength }} words</div>
-			<div>
-				<a
-					@click="deleteNote"
-					href="#"
-					class="py-1 px-3 mr-3 | text-red-700 rounded-md"
-					>Delete note</a
-				>
-				<a
-					@click="closeNote"
-					href="#"
-					class="py-1 px-3 | bg-gray-200 rounded-md"
-					>Close note</a
-				>
 			</div>
-		</section>
-	</div>
-	<div v-else class="h-full | flex justify-center items-center">
-		Please select a note to start editing or&nbsp;
-		<a @click="createNote" class="underline font-bold" href="#"
-			>create a new note</a
-		>&nbsp;✍️
-	</div>
+			<!-- Note info and actions -->
+			<section
+				class="mt-3 | flex flex-col md:flex-row justify-between items-center"
+			>
+				<div class="text-sm mb-3 sm:mb-0">
+					Created on {{ noteDate }} contains {{ noteLength }} words
+				</div>
+				<div>
+					<a
+						@click="deleteNote"
+						href="#"
+						class="py-1 px-3 mr-3 | text-red-700 rounded-md"
+						>Delete note</a
+					>
+					<a
+						@click="closeNote"
+						href="#"
+						class="py-1 px-3 | bg-gray-200 rounded-md"
+						>Close note</a
+					>
+				</div>
+			</section>
+		</div>
+		<div v-else class="h-full | flex justify-center items-center">
+			Please select a note to start editing or&nbsp;
+			<a @click="createNote" class="underline font-bold" href="#"
+				>create a new note</a
+			>&nbsp;✍️
+		</div>
+	</transition>
 </template>
 
 <script>
@@ -85,3 +91,14 @@ export default {
 	},
 }
 </script>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}
+</style>

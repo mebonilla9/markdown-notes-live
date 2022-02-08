@@ -2,12 +2,12 @@
 	<!-- delete note -->
 	<DeleteNote v-if="$store.state.deleting" />
 	<div
-		class="container | min-h-1/2 p-3 my-3 mx-auto | bg-white rounded-xl shadow-2xl | flex"
+		class="container | min-h-1/2 p-3 my-3 mx-auto | bg-white rounded-xl shadow-2xl | md:flex"
 	>
 		<!-- left side -->
-		<section class="w-1/4 p-3 mr-3 | bg-gray-100">
+		<section class="md:w-1/4 p-3 mr-3 | bg-gray-100">
 			<!-- Search notes -->
-			<p>Search notes</p>
+			<SearchNote />
 			<!-- Note list -->
 			<NoteList />
 			<!-- right side -->
@@ -22,14 +22,16 @@
 import NoteList from '@/components/NoteList.vue'
 import ActiveNote from '@/components/ActiveNote.vue'
 import DeleteNote from '@/components/DeleteNote.vue'
+import SearchNote from '@/components/SearchNote.vue'
 
 export default {
 	name: 'App',
 	components: {
-		NoteList,
-		ActiveNote,
-		DeleteNote,
-	},
+    NoteList,
+    ActiveNote,
+    DeleteNote,
+    SearchNote
+},
 }
 </script>
 
