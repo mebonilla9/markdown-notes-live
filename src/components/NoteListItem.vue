@@ -5,8 +5,8 @@
 </template>
 
 <script>
+import { computed } from 'vue'
 import { useStore } from 'vuex'
-
 
 export default {
 	name: 'NoteListItem',
@@ -19,7 +19,7 @@ export default {
 	setup(props) {
 		const store = useStore()
 		return {
-			title: store.getters.getNoteTitle(props.note.id),
+			title: computed(() => store.getters.getNoteTitle(props.note.id)),
 			setActiveNote: () => store.commit('setActiveNote', props.note.id),
 		}
 	},

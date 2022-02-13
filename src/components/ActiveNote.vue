@@ -7,6 +7,7 @@
 					<ActiveNoteMD
 						v-model:body="activeNote.body"
 						@blur-note="blurNote"
+						@update:body="activeNote"
 						class="min-h-1/4 w-full h-full p-3 | bg-gray-200"
 					/>
 				</section>
