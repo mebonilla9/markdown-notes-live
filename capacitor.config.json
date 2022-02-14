@@ -1,0 +1,6 @@
+{
+  "appId": "dev.manuel.markdown.notes",
+  "appName": "markdown-notes-live",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

@@ -111,5 +111,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+# Android capacitor project folder
+android/
 
 # End of https://www.toptal.com/developers/gitignore/api/vue,vuejs,visualstudiocode,macos,linux,windows
